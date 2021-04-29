@@ -6,27 +6,26 @@ const container = document.querySelector("#container");
 let masterArr = [];
 const sortBoi = document.querySelector("#sort");
 const turnBoi = document.querySelector("#turnBoi");
+const formBoy = document.querySelector("#formboy");
 //an array of all our character objects
 
 turnBoi.addEventListener("click", passTurn);
-clickBoi.addEventListener("click", addToOrder);
+formBoy.addEventListener('submit', function (e) {
+  e.preventDefault();
+    makeChar();
+    nameBoi.value = "";
+    scoreBoi.value = "";
+  }
+  );
 clear.addEventListener("click", clearOrder);
 sortBoi.addEventListener("click", orderChars);
-function addToOrder() {
-  if (nameBoi.value === "" || scoreBoi.value===""){
-    alert("Hey, fill out your shit. I need a character name and and an init score, you clown.")
-  } else {
-    makeChar();
-    
-  }
-}
 
 function Character(name, score) {
     this.name = name;
     this.score = score;
     this.place = masterArr.length + 1;
-      
-    }
+  }
+  
 function makeChar(){
 //create characters as an object with a name and score.
 //add that char obj to the master array
